@@ -153,7 +153,7 @@ hr {
     --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
 
     --color-text: hsl(12, 5%, 4%);
-    --color-bg:  #fefcf8;
+    --color-bg:  #ffffff;
     --color-border: hsl(17, 24%, 90%);
     --astro-gradient: linear-gradient(0deg, #eee8d5, #268bd2);
     font-smooth: auto;
