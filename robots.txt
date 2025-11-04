@@ -1,4 +1,15 @@
 User-agent: *
-Disallow: 
-Crawl-delay: 5
-Disallow: /js
+Allow: /
+
+# Allow crawling of JavaScript and CSS for better SEO
+Allow: /js/
+Allow: /css/
+Allow: /img/
+
+# Block access to sensitive or unnecessary files
+
+# Crawl delay to be respectful to server resources
+Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://ntpsecure.xyz/sitemap.xml

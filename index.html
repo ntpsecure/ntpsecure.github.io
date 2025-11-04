@@ -2,12 +2,12 @@
 <html color-mode="light" lang="en">
 
 <head>
-	<title>NTPSecure</title>
+	<title>NTPSecure - Secure Time Synchronization</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<meta name="description" content="NTPSecure">
-	<meta name="keywords" content="NTPSecure, time.ntpsecure.xyz">
+	<meta name="description" content="NTPSecure - Professional NTP and NTS time synchronization servers">
+	<meta name="keywords" content="NTPSecure, time.ntpsecure.xyz, NTP, NTS, time synchronization">
 	<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
@@ -15,301 +15,389 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/helper.js"></script>
 
-
 </head>
+<body>
 <main>
-	<h1><font class="color" id="details">NTP - NTS Server</font></h1>
-	<div>
-	<span class="value">DE ntp server: time.ntpsecure.xyz no-encryption | <a href="https://docs.ntpd-rs.pendulum-project.org/guide/getting-started/">ntpd-rs</a></span><br/>
-	<span class="value">DE nts server: time.ntpsecure.xyz:4460  encryption | <a href="https://docs.ntpd-rs.pendulum-project.org/guide/getting-started/">ntpd-rs</a></span><br/><br/>
-		<span class="value">CH ntp server: time2.ntpsecure.xyz no-encryption | <a href="https://docs.ntpd-rs.pendulum-project.org/guide/getting-started/">ntpd-rs</a></span><br/>
-	<span class="value">CH nts server: time2.ntpsecure.xyz:4460  encryption | <a href="https://docs.ntpd-rs.pendulum-project.org/guide/getting-started/">ntpd-rs</a></span><br/><br/>
-	<span class="bigv">NTPSecure uses a mix of Network Time Protocol and Network Time Security server.</span><br /><br/>
+	<div class="hero-section">
+		<h1><font class="color" id="details">🚀 NTP & NTS Secure Time Servers</font></h1>
+		<p class="hero-subtitle">Professional time synchronization with modern security</p>
+	</div>
+
+	<div class="servers-grid">
+		<div class="server-card">
+			<div class="server-header">
+				<h3>🇩🇪 Germany Server</h3>
+			</div>
+			<div class="server-info">
+				<div class="server-endpoint">
+					<span class="endpoint-label">NTP:</span>
+					<code>time.ntpsecure.xyz</code>
+					<span class="no-encryption">No Encryption</span>
+				</div>
+				<div class="server-endpoint">
+					<span class="endpoint-label">NTS:</span>
+					<code>time.ntpsecure.xyz:4460</code>
+					<span class="encrypted">Encrypted</span>
+				</div>
+				<div class="server-tech">
+					<a href="https://chrony-project.org/">chronyd</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="server-card">
+			<div class="server-header">
+				<h3>🇨🇭 Switzerland Server</h3>
+			</div>
+			<div class="server-info">
+				<div class="server-endpoint">
+					<span class="endpoint-label">NTP:</span>
+					<code>time2.ntpsecure.xyz</code>
+					<span class="no-encryption">No Encryption</span>
+				</div>
+				<div class="server-endpoint">
+					<span class="endpoint-label">NTS:</span>
+					<code>time2.ntpsecure.xyz:4460</code>
+					<span class="encrypted">Encrypted</span>
+				</div>
+				<div class="server-tech">
+					<a href="https://docs.ntpd-rs.pendulum-project.org/guide/getting-started/">ntpd-rs</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="info-section">
+		<p class="bigv">NTPSecure provides both traditional Network Time Protocol (NTP) and modern Network Time Security (NTS) servers for reliable and secure time synchronization.</p>
+	</div>
 	<span class="value">Network Time Protocol (NTP) is a networking protocol designed to synchronize the clocks of computers and devices<br/> over a network, ensuring accurate and consistent timekeeping across distributed systems.<br/> It operates primarily over the User Datagram Protocol (UDP) on port 123 and is defined in RFC 5905 (and earlier RFCs).
 		<br/>Network Time Security (NTS) is a security framework for the Network Time Protocol (NTP), designed to protect time synchronization <br/>against attacks such as spoofing, man-in-the-middle (MITM), and replay attacks. Defined in <a href="https://tools.ietf.org/html/rfc8915">RFC 8915</a>, NTS ensures the authenticity, <br/> integrity, and confidentiality of NTP communications over untrusted networks, addressing <br/>vulnerabilities in traditional NTP implementations.
 	</span><br />
-	<br/><span class="bigv"><h2>NTP - Technical Overview</h2><br/></span>
-	<button onclick="ntpopen()">Open NTP Details (Written by Grok)</button>
-     <div id="ntpo" style="display:none;">
+	<div class="technical-section">
+		<h2>📡 NTP - Technical Overview</h2>
+		<button class="toggle-btn" onclick="ntpopen()">📖 Open NTP Details (Written by GitHub Copilot)</button>
+		<div id="ntpo" class="collapsible-content" style="display:none;">
 		<br/>
 	<hr>
 		<p>
-			NTP enables precise time synchronization by exchanging timestamped messages between a client and a time server (or a hierarchy of servers). It uses a hierarchical structure of time sources, organized into <strong>strata</strong>:
+			Network Time Protocol (NTP) achieves precise clock synchronization through a sophisticated client-server architecture that exchanges timestamped packets across networks. The protocol organizes time sources in a hierarchical structure called <strong>strata</strong>, creating a reliable chain of time distribution:
 		</p>
 		<ul>
-			<li><strong>Stratum 0</strong>: High-precision time sources, such as GPS receivers or atomic clocks, directly connected to a computer or device.</li>
-			<li><strong>Stratum 1</strong>: Servers directly synchronized with Stratum 0 devices (e.g., via GPS or radio signals).</li>
-			<li><strong>Stratum 2 and higher</strong>: Servers synchronized with higher strata, with increasing distance (and potential latency) from the primary time source.</li>
+			<li><strong>Stratum 0</strong>: Primary reference clocks like atomic clocks, GPS receivers, or radio time signals that provide the ultimate time authority.</li>
+			<li><strong>Stratum 1</strong>: Time servers directly connected to stratum 0 sources, serving as primary time distribution points.</li>
+			<li><strong>Stratum 2+</strong>: Secondary servers that synchronize with higher stratum levels, each adding a layer of distribution while maintaining accuracy.</li>
 		</ul>
 	
-		<h2>Key Mechanisms</h2>
+		<h2>Core Synchronization Mechanisms</h2>
 	
-		<h3>1. Timestamp Exchange</h3>
+		<h3>1. Four-Way Timestamp Exchange</h3>
 		<p>
-			NTP uses a client-server model where the client sends a request packet containing a timestamp (<code>T1</code>, the client's local time when the request is sent). The server responds with a packet containing:
+			NTP's fundamental operation relies on a precise four-timestamp exchange protocol. When a client requests time synchronization, it records the local transmission time (<code>T1</code>). The server captures the packet arrival time (<code>T2</code>) and departure time (<code>T3</code>), while the client notes the response arrival time (<code>T4</code>). This quartet enables accurate calculation of:
 		</p>
 		<ul>
-			<li><code>T1</code> (client's original timestamp)</li>
-			<li><code>T2</code> (server's receipt time)</li>
-			<li><code>T3</code> (server's transmission time)</li>
+			<li><code>T1</code> - Client request transmission timestamp</li>
+			<li><code>T2</code> - Server request reception timestamp</li>
+			<li><code>T3</code> - Server response transmission timestamp</li>
+			<li><code>T4</code> - Client response reception timestamp</li>
 		</ul>
 		<p>
-			The client records <code>T4</code> (its local time when the response is received). These four timestamps allow the client to calculate:
+			From these measurements, NTP computes the essential synchronization parameters:
 		</p>
 		<ul>
-			<li><strong>Round-trip delay</strong>: <code>δ = (T4 - T1) - (T3 - T2)</code></li>
+			<li><strong>Network delay</strong>: <code>δ = (T4 - T1) - (T3 - T2)</code></li>
 			<li><strong>Clock offset</strong>: <code>θ = [(T2 - T1) + (T3 - T4)] / 2</code></li>
 		</ul>
 		<p>
-			The offset is used to adjust the client's clock, and the delay helps estimate network latency.
+			The offset determines how much the local clock needs adjustment, while the delay measurement helps compensate for network latency variations.
 		</p>
 	
-		<h3>2. Clock Discipline Algorithm</h3>
+		<h3>2. Adaptive Clock Discipline</h3>
 		<p>
-			NTP employs a clock discipline algorithm to adjust the local clock gradually, avoiding abrupt jumps that could disrupt applications. It uses a combination of:
+			Rather than making abrupt clock adjustments that could destabilize applications, NTP employs sophisticated clock discipline algorithms that gradually steer the local clock toward the correct time. The system combines:
 		</p>
 		<ul>
-			<li><strong>Phase-locked loops (PLL)</strong></li>
-			<li><strong>Frequency-locked loops (FLL)</strong></li>
+			<li><strong>Phase-Locked Loops (PLL)</strong>: Provide smooth phase corrections for steady-state synchronization</li>
+			<li><strong>Frequency-Locked Loops (FLL)</strong>: Handle rapid frequency adjustments during initial synchronization</li>
 		</ul>
 		<p>
-			These stabilize clock corrections over time, accounting for clock drift and jitter.
+			These mechanisms work together to minimize clock jitter while maintaining long-term stability and compensating for natural crystal oscillator drift.
 		</p>
 	
-		<h3>3. Hierarchical Synchronization</h3>
+		<h3>3. Intelligent Server Selection</h3>
 		<p>
-			NTP clients can synchronize with multiple servers to improve accuracy and reliability, using algorithms to select the best time source based on factors like stratum level, network delay, and server quality. Key algorithms include:
-		</p>
-		<ul>
-			<li><strong>Intersection algorithm</strong>: Filters out "falsetickers" (servers with incorrect time).</li>
-			<li><strong>Clustering algorithm</strong>: Combines data from "truechimers" (reliable servers).</li>
-		</ul>
-	
-		<h3>4. Packet Structure</h3>
-		<p>
-			NTP packets are 48 bytes (minimum) and include fields such as:
+			Modern NTP implementations can simultaneously query multiple time sources and intelligently select the most reliable references. The protocol employs sophisticated algorithms to ensure accuracy:
 		</p>
 		<ul>
-			<li><strong>Leap Indicator</strong>: Signals leap second adjustments.</li>
-			<li><strong>Version Number</strong>: Specifies the NTP version (e.g., NTPv4).</li>
-			<li><strong>Mode</strong>: Indicates client, server, or broadcast mode.</li>
-			<li><strong>Stratum</strong>: Indicates the server's stratum level.</li>
-			<li><strong>Reference ID</strong>: Identifies the time source or server.</li>
-			<li><strong>Timestamps</strong>: Originate, Receive, Transmit, and Reference timestamps.</li>
+			<li><strong>Intersection Algorithm</strong>: Identifies and eliminates "falsetickers" (servers providing incorrect time) through statistical analysis</li>
+			<li><strong>Clustering Algorithm</strong>: Groups consistent "truechimers" (reliable servers) to compute the best time estimate</li>
 		</ul>
 	
-		<h2>Modes of Operation</h2>
-		<ul>
-			<li><strong>Client-Server</strong>: The client requests time from a server and adjusts its clock.</li>
-			<li><strong>Symmetric</strong>: Two peers synchronize with each other (used between servers).</li>
-			<li><strong>Broadcast/Multicast</strong>: A server periodically sends time to multiple clients, suitable for LANs with less precision.</li>
-			<li><strong>Manycast</strong>: Clients discover nearby servers via multicast for synchronization.</li>
-		</ul>
-	
-		<h2>Precision and Accuracy</h2>
+		<h3>4. Protocol Structure and Format</h3>
 		<p>
-			NTP can achieve <strong>sub-millisecond accuracy</strong> in ideal conditions (e.g., LANs with low latency). Accuracy depends on:
+			NTP packets maintain a compact 48-byte minimum structure optimized for efficiency while carrying essential synchronization data:
 		</p>
 		<ul>
-			<li>Network stability</li>
-			<li>Server quality</li>
-			<li>Client's clock hardware</li>
+			<li><strong>Leap Indicator</strong>: Warns of pending leap second insertions or deletions</li>
+			<li><strong>Version Number</strong>: Identifies the NTP protocol version (currently NTPv4)</li>
+			<li><strong>Mode Field</strong>: Specifies the packet type (client, server, broadcast, etc.)</li>
+			<li><strong>Stratum Level</strong>: Indicates distance from primary reference source</li>
+			<li><strong>Reference Identifier</strong>: Identifies the immediate time source</li>
+			<li><strong>Precision Timestamps</strong>: Carry the critical timing measurements</li>
 		</ul>
-		<p>
-			In wide-area networks, accuracy is typically in the range of <strong>milliseconds</strong> due to variable latency.
-		</p>
 	
-		<h2>Security</h2>
+		<h2>Operating Modes</h2>
+		<ul>
+			<li><strong>Client-Server Mode</strong>: Traditional unicast operation where clients actively request time from designated servers</li>
+			<li><strong>Symmetric Active/Passive</strong>: Peer-to-peer synchronization between servers of similar stratum levels</li>
+			<li><strong>Broadcast Mode</strong>: One-to-many distribution suitable for controlled network environments with predictable delays</li>
+			<li><strong>Multicast Mode</strong>: Efficient distribution to groups of clients within local network segments</li>
+		</ul>
+	
+		<h2>Accuracy and Performance</h2>
 		<p>
-			NTP supports authentication mechanisms, such as:
+			NTP's achievable accuracy varies significantly based on network conditions and implementation quality:
 		</p>
 		<ul>
-			<li>Symmetric key cryptography</li>
-			<li>Autokey (in NTPv4)</li>
+			<li><strong>Local Networks</strong>: Can achieve microsecond-level accuracy with stable, low-latency connections</li>
+			<li><strong>Wide Area Networks</strong>: Typically maintains millisecond-range accuracy despite variable internet conditions</li>
+			<li><strong>Factors Affecting Precision</strong>: Network jitter, server load, client hardware quality, and temperature variations</li>
 		</ul>
 		<p>
-			Vulnerabilities like <strong>DDoS amplification</strong> (e.g., via <code>monlist</code> queries in older implementations) have led to recommendations for securing NTP servers.
+			Performance optimization involves careful server selection, network path analysis, and local clock characterization to maximize synchronization quality.
 		</p>
 	
-		<h2>Implementations</h2>
+		<h2>Security Considerations</h2>
 		<p>
-			Common NTP implementations include:
+			While basic NTP operates without authentication, several security mechanisms protect against timing attacks:
 		</p>
 		<ul>
-			<li><strong>ntpd</strong>: Reference implementation daemon.</li>
-			<li><strong>chronyd</strong>: Optimized for intermittent connectivity.</li>
-			<li><strong>SNTP</strong>: Simplified NTP for devices requiring less precision.</li>
+			<li><strong>Symmetric Key Authentication</strong>: Pre-shared keys authenticate packet exchanges</li>
+			<li><strong>Autokey Protocol</strong>: Public key cryptography for scalable authentication in NTPv4</li>
+			<li><strong>Rate Limiting</strong>: Prevents amplification attacks through query restrictions</li>
 		</ul>
-	
-		<h2>Applications</h2>
-		<ul>
-			<li>Distributed systems (e.g., databases, blockchain) for event ordering.</li>
-			<li>Network logging and monitoring for consistent timestamps.</li>
-			<li>Real-time applications (e.g., financial trading, IoT) requiring precise timing.</li>
-		</ul>
-	
-		<h2>Summary</h2>
 		<p>
-			NTP is a robust, scalable protocol for synchronizing clocks across networks, leveraging timestamp exchanges, hierarchical strata, and sophisticated algorithms to achieve high precision and reliability in diverse environments.
+			Security vulnerabilities in older implementations led to enhanced protections against DDoS amplification and timing manipulation attacks.
+		</p>
+	
+		<h2>Popular Implementations</h2>
+		<p>
+			Several robust NTP implementations serve different operational requirements:
+		</p>
+		<ul>
+			<li><strong>ntpd</strong>: The original reference implementation offering comprehensive features and compatibility</li>
+			<li><strong>chrony</strong>: Modern implementation optimized for mobile devices and intermittent network connectivity</li>
+			<li><strong>OpenNTPD</strong>: Security-focused implementation with simplified configuration</li>
+			<li><strong>SNTP</strong>: Lightweight clients for devices requiring basic time synchronization</li>
+		</ul>
+	
+		<h2>Real-World Applications</h2>
+		<ul>
+			<li><strong>Financial Systems</strong>: Ensuring precise transaction timestamps and regulatory compliance</li>
+			<li><strong>Distributed Computing</strong>: Coordinating events across clusters and maintaining data consistency</li>
+			<li><strong>Network Infrastructure</strong>: Synchronizing logs, monitoring systems, and security event correlation</li>
+			<li><strong>Industrial Control</strong>: Timing critical processes in manufacturing and power grid operations</li>
+		</ul>
+	
+		<h2>Conclusion</h2>
+		<p>
+			NTP represents a mature, battle-tested approach to network time synchronization that balances accuracy, scalability, and robustness. Through its hierarchical architecture, sophisticated algorithms, and adaptive mechanisms, NTP enables the precise timing coordination that modern networked systems require for reliable operation.
 		</p>
 		<hr>
 	</div>
 	<br />
-	<br/><span class="bigv"><h2>NTS - Technical Overview</h2><br/></span>
-	<button onclick="ntsopen()">Open NTS Details (Also Written by Grok)</button>
-     <div id="ntso" style="display:none;">
+	</div>
+	
+	<div class="technical-section">
+		<h2>🔒 NTS - Technical Overview</h2>
+		<button class="toggle-btn" onclick="ntsopen()">📖 Open NTS Details (Written by GitHub Copilot)</button>
+		<div id="ntso" class="collapsible-content" style="display:none;">
 		<br/>
 		<hr>
 		<p>
-			NTS extends NTP by integrating cryptographic mechanisms to secure time synchronization. It operates in two primary components:
+			Network Time Security (NTS) represents a revolutionary advancement in secure time synchronization, addressing the fundamental security vulnerabilities that have plagued traditional NTP for decades. This modern cryptographic framework transforms NTP from a vulnerable protocol into a secure, authenticated time distribution system suitable for high-stakes environments. NTS operates through a two-phase architecture that separates key establishment from ongoing time synchronization operations:
 		</p>
 		<ul>
-			<li><strong>NTS Key Establishment (NTS-KE)</strong>: A protocol for securely negotiating cryptographic keys and parameters between an NTP client and server.</li>
-			<li><strong>NTS-protected NTP messages</strong>: NTP packets augmented with extensions for authentication and integrity protection.</li>
+			<li><strong>NTS Key Establishment (NTS-KE)</strong>: A secure TLS-based handshake that negotiates cryptographic parameters and establishes shared secrets</li>
+			<li><strong>Authenticated NTP Exchange</strong>: Cryptographically protected time synchronization using the established security context</li>
 		</ul>
 		<p>
-			NTS is designed to be backward-compatible with NTPv4, using NTP extension fields to carry security-related data without disrupting legacy clients or servers.
+			This design maintains full backward compatibility with existing NTPv4 infrastructure while adding enterprise-grade security through standardized extension mechanisms.
 		</p>
 	
-		<h2>Key Components and Mechanisms</h2>
+		<h2>Cryptographic Architecture</h2>
 	
-		<h3>1. NTS Key Establishment (NTS-KE)</h3>
+		<h3>1. Secure Key Establishment Phase</h3>
 		<p>
-			NTS-KE is a separate protocol that runs over <strong>Transport Layer Security (TLS)</strong> (typically on TCP port <code>4460</code>) to establish cryptographic keys and negotiate parameters before NTP time synchronization begins. The process includes:
+			The NTS-KE protocol establishes the cryptographic foundation for all subsequent time synchronization. This initial handshake occurs over a dedicated TLS connection (typically port <code>4460</code>) and performs several critical security functions:
 		</p>
 		<ul>
-			<li><strong>TLS Handshake</strong>: The client and server establish a secure TLS session, authenticating the server using X.509 certificates (client authentication is optional).</li>
-			<li><strong>Parameter Negotiation</strong>: The client and server agree on:
-				<ul>
-					<li>Application-Layer Protocol Negotiation (ALPN), identifying the protocol as <code>ntske/1</code>.</li>
-					<li>Supported cryptographic algorithms (e.g., AES-SIV-CMAC for authentication).</li>
-					<li>NTP server address and port for subsequent time synchronization.</li>
-				</ul>
-			</li>
-			<li><strong>Key Derivation</strong>: The TLS session generates shared keys, which are exported using the TLS key exporter (per <a href="https://tools.ietf.org/html/rfc5705">RFC 5705</a>) to create:
-				<ul>
-					<li><strong>C2S key</strong>: For authenticating client-to-server messages.</li>
-					<li><strong>S2C key</strong>: For authenticating server-to-client messages.</li>
-				</ul>
-			</li>
-			<li><strong>Cookie Exchange</strong>: The server provides the client with encrypted "cookies" containing key material and configuration data. These cookies allow stateless operation for the server, enabling scalability.</li>
+			<li><strong>Mutual Authentication</strong>: Server identity verification through X.509 certificates, with optional client authentication for enhanced security models</li>
+			<li><strong>Protocol Negotiation</strong>: Agreement on cryptographic algorithms, with preference for modern AEAD ciphers like AES-SIV-CMAC-256</li>
+			<li><strong>Parameter Exchange</strong>: Configuration of NTP server endpoints, supported algorithms, and operational parameters through structured negotiation</li>
+			<li><strong>Key Material Generation</strong>: Derivation of cryptographic keys using TLS exporters (<a href="https://tools.ietf.org/html/rfc5705">RFC 5705</a>), creating separate keys for each communication direction</li>
 		</ul>
 		<p>
-			After NTS-KE, the TLS session is closed, and the client uses the negotiated parameters and keys for NTP communication.
-		</p>
-	
-		<h3>2. NTS-Protected NTP Messages</h3>
-		<p>
-			Once keys are established, NTP messages are secured using NTPv4 extension fields. The key mechanisms include:
+			The key establishment phase generates distinct cryptographic contexts:
 		</p>
 		<ul>
-			<li><strong>Authentication and Integrity</strong>: NTS uses the <strong>Authenticated Encryption with Associated Data (AEAD)</strong> algorithm (typically <code>AES-SIV-CMAC-256</code>) to protect NTP packets. Each packet includes:
-				<ul>
-					<li>An <strong>NTS Authenticator and Encrypted Extension Fields</strong> extension, containing a message authentication code (MAC) to verify integrity and authenticity.</li>
-					<li>A unique nonce to prevent replay attacks.</li>
-				</ul>
-			</li>
-			<li><strong>Cookie Mechanism</strong>: Clients include a cookie in NTP requests, allowing the server to reconstruct the necessary cryptographic context without maintaining per-client state.</li>
-			<li><strong>Optional Confidentiality</strong>: While NTS primarily focuses on authentication and integrity, sensitive extension fields can be encrypted using the AEAD algorithm.</li>
+			<li><strong>Client-to-Server (C2S) Keys</strong>: Protect client requests and ensure request authenticity</li>
+			<li><strong>Server-to-Client (S2C) Keys</strong>: Secure server responses and prevent response forgery</li>
 		</ul>
 		<p>
-			The standard NTP header and timestamps remain unencrypted to ensure compatibility and allow intermediary devices (e.g., routers) to process packets.
+			Following successful key establishment, the TLS connection terminates, leaving the client with all necessary security material for ongoing NTP operations.
 		</p>
 	
-		<h3>3. Security Guarantees</h3>
+		<h3>2. Stateless Cookie Architecture</h3>
 		<p>
-			NTS provides the following protections:
+			NTS employs an innovative cookie-based approach that enables massive scalability while maintaining security. The server issues encrypted cookies containing client-specific security context, allowing for completely stateless server operation:
 		</p>
 		<ul>
-			<li><strong>Server Authentication</strong>: TLS certificates verify the server's identity, preventing spoofing.</li>
-			<li><strong>Message Integrity</strong>: AEAD ensures that NTP packets are not tampered with.</li>
-			<li><strong>Replay Protection</strong>: Unique nonces in each packet prevent attackers from reusing captured packets.</li>
-			<li><strong>Protection Against Delay Attacks</strong>: By authenticating timestamps, NTS mitigates attacks that manipulate perceived network latency to skew time.</li>
-			<li><strong>Scalability</strong>: The cookie mechanism allows servers to remain stateless, supporting large numbers of clients.</li>
+			<li><strong>Security Context Encapsulation</strong>: Cookies contain encrypted key material, algorithm specifications, and client parameters</li>
+			<li><strong>Server Scalability</strong>: Eliminates per-client state storage requirements, enabling horizontal scaling to millions of clients</li>
+			<li><strong>Cookie Renewal</strong>: Automatic cookie refresh mechanisms prevent long-term key exposure and maintain forward secrecy</li>
 		</ul>
 	
-		<h2>Operational Modes</h2>
+		<h3>3. Protected Time Synchronization</h3>
 		<p>
-			NTS supports the same NTP modes as NTPv4, including:
+			Once the security context is established, NTP packets carry cryptographic protection through carefully designed extension fields that maintain protocol compatibility:
 		</p>
 		<ul>
-			<li><strong>Client-Server</strong>: Most common, where a client synchronizes with an NTS-enabled server.</li>
-			<li><strong>Broadcast/Multicast</strong>: Limited support, as these modes are less secure and less commonly used with NTS.</li>
-			<li><strong>Symmetric Mode</strong>: Supported for peer-to-peer synchronization, with mutual NTS-KE sessions.</li>
+			<li><strong>Authenticated Encryption</strong>: AEAD algorithms provide simultaneous authentication and confidentiality for sensitive packet extensions</li>
+			<li><strong>Unique Nonce Protection</strong>: Each packet includes a cryptographically unique identifier preventing replay attacks and ensuring freshness</li>
+			<li><strong>Integrity Verification</strong>: Message Authentication Codes (MACs) detect any tampering with packet contents during transmission</li>
+			<li><strong>Selective Encryption</strong>: Core NTP headers remain unencrypted for network device compatibility while protecting sensitive extensions</li>
 		</ul>
 	
-		<h2>Performance Considerations</h2>
+		<h2>Security Properties and Guarantees</h2>
 		<p>
-			NTS introduces some overhead compared to traditional NTP:
+			NTS provides comprehensive protection against the entire spectrum of time-based attacks:
 		</p>
 		<ul>
-			<li><strong>TLS Handshake</strong>: The initial NTS-KE phase requires a TLS session, adding latency (typically a one-time cost).</li>
-			<li><strong>Packet Overhead</strong>: NTS extension fields increase packet size (e.g., 100–200 bytes per packet).</li>
-			<li><strong>Computational Cost</strong>: AEAD computations require additional CPU resources, though modern hardware handles this efficiently.</li>
+			<li><strong>Identity Assurance</strong>: PKI-based server authentication eliminates spoofing and man-in-the-middle attacks</li>
+			<li><strong>Data Integrity</strong>: Cryptographic verification ensures packets arrive unmodified and authentic</li>
+			<li><strong>Replay Prevention</strong>: Nonce-based protection prevents attackers from reusing captured packets</li>
+			<li><strong>Delay Attack Mitigation</strong>: Authenticated timestamps prevent manipulation of perceived network latency</li>
+			<li><strong>Forward Secrecy</strong>: Regular key rotation limits exposure from potential key compromise</li>
+			<li><strong>Denial of Service Resilience</strong>: Stateless architecture reduces vulnerability to resource exhaustion attacks</li>
 		</ul>
-		<p>
-			Despite this, NTS is optimized for scalability and minimal impact on time synchronization accuracy.
-		</p>
 	
-		<h2>Implementations</h2>
+		<h2>Deployment Models</h2>
 		<p>
-			NTS is supported in modern NTP implementations, including:
+			NTS supports flexible deployment architectures to meet diverse operational requirements:
 		</p>
 		<ul>
-			<li><strong>ntpd</strong>: The reference NTP daemon (from NTPsec or OpenNTPD).</li>
-			<li><strong>chronyd</strong>: A lightweight NTP implementation with robust NTS support.</li>
-			<li><strong>ptpd</strong>: Precision Time Protocol daemon with NTS extensions in some versions.</li>
+			<li><strong>Client-Server Mode</strong>: Primary deployment model with clients securely synchronizing to authenticated NTS servers</li>
+			<li><strong>Peer-to-Peer Synchronization</strong>: Mutual authentication between server peers through bidirectional NTS-KE establishment</li>
+			<li><strong>Hybrid Networks</strong>: Graceful fallback to traditional NTP when NTS is unavailable, with clear security indication</li>
 		</ul>
-		<p>
-			Public NTS-enabled time servers are available (e.g., those operated by Cloudflare or Netnod), and clients can configure NTS using standard NTP configuration files.
-		</p>
 	
-		<h2>Limitations</h2>
+		<h2>Performance Analysis and Optimization</h2>
 		<p>
-			While NTS significantly improves NTP security, it has some limitations:
+			While NTS introduces computational and network overhead, careful optimization maintains excellent performance characteristics:
 		</p>
 		<ul>
-			<li><strong>Dependency on TLS</strong>: NTS relies on a robust Public Key Infrastructure (PKI) and trusted certificates, which can be a point of failure if misconfigured.</li>
-			<li><strong>No End-to-End Confidentiality</strong>: NTP timestamps remain unencrypted to maintain compatibility, so NTS does not protect against passive eavesdropping of time data.</li>
-			<li><strong>Adoption</strong>: Not all NTP servers or clients support NTS, requiring fallback to less secure mechanisms in mixed environments.</li>
+			<li><strong>Initial Handshake Cost</strong>: One-time TLS establishment adds ~100ms latency but occurs infrequently</li>
+			<li><strong>Ongoing Overhead</strong>: Cryptographic operations add ~10-20% CPU usage on modern hardware</li>
+			<li><strong>Packet Size Increase</strong>: Extension fields add approximately 100-200 bytes per NTP packet</li>
+			<li><strong>Accuracy Preservation</strong>: Cryptographic operations have negligible impact on synchronization precision</li>
 		</ul>
-	
-		<h2>Applications</h2>
 		<p>
-			NTS is critical in environments requiring secure and accurate time synchronization, such as:
+			Modern implementations optimize performance through hardware acceleration, efficient key caching, and streamlined cryptographic operations.
+		</p>
+	
+		<h2>Implementation Ecosystem</h2>
+		<p>
+			NTS enjoys broad support across modern time synchronization implementations:
 		</p>
 		<ul>
-			<li><strong>Financial Systems</strong>: For timestamping transactions and compliance (e.g., MiFID II).</li>
-			<li><strong>Telecommunications</strong>: For synchronizing 5G networks and IoT devices.</li>
-			<li><strong>Distributed Systems</strong>: For consistent event ordering in databases and blockchain.</li>
-			<li><strong>Critical Infrastructure</strong>: For securing power grids and transportation systems.</li>
+			<li><strong>chrony</strong>: Leading implementation with comprehensive NTS support and optimization for diverse network conditions</li>
+			<li><strong>NTPsec</strong>: Security-focused NTP distribution with robust NTS implementation and additional hardening</li>
+			<li><strong>ntpd-rs</strong>: Modern Rust implementation emphasizing memory safety and performance</li>
+			<li><strong>OpenNTPD</strong>: BSD-focused implementation with clean NTS integration</li>
+		</ul>
+		<p>
+			Public NTS infrastructure continues expanding, with major providers like Cloudflare, Netnod, and NTPsecure offering production-ready services.
+		</p>
+	
+		<h2>Operational Considerations</h2>
+		<p>
+			Successful NTS deployment requires attention to several operational factors:
+		</p>
+		<ul>
+			<li><strong>Certificate Management</strong>: Robust PKI infrastructure with proper certificate lifecycle management and monitoring</li>
+			<li><strong>Performance Monitoring</strong>: Tracking both synchronization accuracy and cryptographic operation efficiency</li>
+			<li><strong>Fallback Strategies</strong>: Graceful degradation to standard NTP when NTS services are unavailable</li>
+			<li><strong>Network Compatibility</strong>: Ensuring firewall and network equipment properly handle NTS traffic</li>
 		</ul>
 	
-		<h2>Summary</h2>
+		<h2>Critical Applications</h2>
 		<p>
-			Network Time Security (NTS) is a robust extension to NTP that secures time synchronization using TLS-based key establishment and AEAD-protected NTP messages. By providing authentication, integrity, and replay protection, NTS mitigates critical vulnerabilities in traditional NTP, making it suitable for high-security applications while maintaining compatibility and scalability.
+			NTS enables secure time synchronization in environments where timing attacks pose serious risks:
 		</p>
-		<hr>
+		<ul>
+			<li><strong>Financial Trading</strong>: Protecting high-frequency trading systems from timing manipulation attacks</li>
+			<li><strong>Regulatory Compliance</strong>: Meeting stringent timing audit requirements in financial services (MiFID II, Dodd-Frank)</li>
+			<li><strong>Critical Infrastructure</strong>: Securing power grid synchronization and industrial control systems</li>
+			<li><strong>Telecommunications</strong>: Protecting 5G network synchronization and ensuring service quality</li>
+			<li><strong>Distributed Systems</strong>: Enabling trusted event ordering in blockchain and database systems</li>
+		</ul>
+	
+		<h2>Future Evolution</h2>
+		<p>
+			Network Time Security represents the foundation for next-generation secure timing protocols. By combining proven cryptographic techniques with practical operational requirements, NTS transforms time synchronization from a security liability into a trusted service foundation. Ongoing development focuses on post-quantum cryptographic readiness, enhanced scalability mechanisms, and integration with emerging network architectures.
+		</p>
 		</div>
-		<br/>
-		<h1><font class="color" id="details">NTP Server Received Packets Total</font></h1>
-		<span class="bigv"><img src="img/ntp_server_received_packets_total.png"></span>
-		<br/>
-		<h1><font class="color" id="details">NTS Server Received Packets Total</font></h1>
-		<span class="bigv"><img src="img/ntp_server_nts_received_packets_total.png"></span>
-		<br/>
-		<h1><font class="color" id="details">NTP-2 Server Received Packets Total</font></h1>
-		<span class="bigv"><img src="img/2ntp_server_received_packets_total.png"></span>
-		<br/>
-		<h1><font class="color" id="details">NTS-2 Server Received Packets Total</font></h1>
-		<span class="bigv"><img src="img/2ntp_server_nts_received_packets_total.png"></span>
-		<br/>
-		<br/>
-		<hr>
-		<br/>
-		<span class="value">The server config consists of 4 ntp servers, from switzerland and one nts server for stratum 1 sync.</span>
-		<pre>
-			<code>
+	</div>
+
+	<div class="metrics-section">
+		<h2>📊 Server Statistics & Monitoring</h2>
+		<p class="metrics-intro">Real-time metrics from our NTP and NTS servers showing packet reception statistics.</p>
+		
+		<div class="metrics-grid">
+			<div class="metric-card">
+				<h3><font class="color">🇩🇪 NTP Server Received Packets</font></h3>
+				<div class="metric-chart">
+					<img src="img/ntp_server_received_packets_total.png" alt="NTP Server Received Packets Chart" class="clickable-chart" onclick="openModal(this)">
+				</div>
+			</div>
+
+			<div class="metric-card">
+				<h3><font class="color">🇩🇪 NTS Server Received Packets</font></h3>
+				<div class="metric-chart">
+					<img src="img/ntp_server_nts_received_packets_total.png" alt="NTS Server Received Packets Chart" class="clickable-chart" onclick="openModal(this)">
+				</div>
+			</div>
+
+			<div class="metric-card">
+				<h3><font class="color">🇨🇭 NTP Server Received Packets</font></h3>
+				<div class="metric-chart">
+					<img src="img/2ntp_server_received_packets_total.png" alt="NTP-2 Server Received Packets Chart" class="clickable-chart" onclick="openModal(this)">
+				</div>
+			</div>
+
+			<div class="metric-card">
+				<h3><font class="color">🇨🇭 NTS Server Received Packets</font></h3>
+				<div class="metric-chart">
+					<img src="img/2ntp_server_nts_received_packets_total.png" alt="NTS-2 Server Received Packets Chart" class="clickable-chart" onclick="openModal(this)">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal for enlarged images -->
+	<div id="imageModal" class="modal" onclick="closeModal()">
+		<div class="modal-content">
+			<span class="close-btn" onclick="closeModal()">&times;</span>
+			<img id="modalImage" src="" alt="">
+			<div class="modal-caption" id="modalCaption"></div>
+		</div>
+	</div>
+
+	<div class="config-section">
+		<h2>⚙️ Server Configuration</h2>
+		<p class="config-description">Our servers use a robust configuration with 4 NTP servers from Switzerland and one NTS server for stratum 1 synchronization.</p>
+		<div class="config-code">
+			<pre><code>
 		//GPS Source, GL, GA, BD
 		[[source]]
 			mode = "server"
@@ -330,21 +418,25 @@
 		[[source]]
 			mode = "nts"
 			address = "time.cloudflare.com"
-			</code>
-		</pre>
-<footer>
-	<span>
-		<center> <a href="https://github.com/ntpsecure/ntpsecure.github.io">Github</a> | inspired by <a href="https://ntp.zeitgitter.net/" target="_blank">https://ntp.zeitgitter.net/</a> & made with 🧀 from Switzerland | Enjoy the NTS encrypted time server</center>
-		<center>Questions/Suggestions -> <a href="mailto:contact@ntpsecure.xyz"> Reach me</a> <- </center>
-			<br/><center><figure>
-				<div>
-				  <div><img class="bg-png" src="img/bed.png"></div>
-				</div>
-			  </figure>
-		  </p></center>
-	</span>
-</footer>
-</footer>
-</script>
+			</code></pre>
+		</div>
+	</div>
+	<footer>
+		<div class="footer-content">
+			<p>
+				<a href="https://github.com/ntpsecure/ntpsecure.github.io">🐙 Github</a> | 
+				Inspired by <a href="https://ntp.zeitgitter.net/" target="_blank">ntp.zeitgitter.net</a> | 
+				Made with 🧀 from Switzerland
+			</p>
+			<p>Enjoy the NTS encrypted time server</p>
+			<p>Questions/Suggestions? <a href="mailto:contact@ntpsecure.xyz">📧 Reach out</a></p>
+			<figure>
+				<img class="bg-png" src="img/bed.png" alt="Swiss Flag">
+			</figure>
+		</div>
+	</footer>
+
+</main>
+</body>
 
 </html>
