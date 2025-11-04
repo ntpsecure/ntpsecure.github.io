@@ -12,4 +12,4 @@ Allow: /img/
 Crawl-delay: 2
 
 # Sitemap location
-Sitemap: https://ntpsecure.xyz/sitemap.xml
+Sitemap: https://ntpsecure.xyz//sitemap.xml
