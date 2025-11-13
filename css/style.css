@@ -602,3 +602,22 @@ footer a:hover {
     }
 }
 
+/* AI Attribution Styling */
+.ai-attribution {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.ai-attribution p {
+    margin: 0;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+.ai-attribution small {
+    font-size: 0.75rem;
+}
+
+
